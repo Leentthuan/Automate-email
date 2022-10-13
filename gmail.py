@@ -33,7 +33,7 @@ for r in df.itertuples():
 # Define the transport variables
         ctx = ssl.create_default_context()
         password = "Your app password"    # Your app password goes here
-#Generate app password:"https://support.google.com/mail/answer/185833?hl=en-GB"
+# Generate app password:"https://support.google.com/mail/answer/185833?hl=en-GB"
         sender = "Youremail@gmail.com"   # Your e-mail address
         receiver = Recipient # Recipient's address
         print(receiver)

@@ -30,30 +30,31 @@ for r in df.itertuples():
 
         """
         print(msg)
-        # Define the transport variables
+# Define the transport variables
         ctx = ssl.create_default_context()
         password = "Your app password"    # Your app password goes here
+#Generate app password:"https://support.google.com/mail/answer/185833?hl=en-GB"
         sender = "Youremail@gmail.com"   # Your e-mail address
         receiver = Recipient # Recipient's address
         print(receiver)
         
-        # Create the message
+# Create the message
         message = MIMEMultipart("mixed")
         message["From"] = sender
         message["To"] = receiver
         message["Subject"] = "Testing things!"
 
-        # Record the MIME types of both parts - text/plain and text/html.
+# Record the MIME types of both parts - text/plain and text/html.
         #part1 = MIMEText(text, 'plain')
         part1 = MIMEText(msg, 'html')
 
-        # Attach parts into message container.
+# Attach parts into message container.
         # According to RFC 2046, the last part of a multipart message, in this case
         # the HTML message, is best and preferred.
         #message.attach(part1)
         message.attach(part1)
 
-        # Attach image
+# Attach image
         ##filename = '/Users/user1/Desktop/Sheet2.xlsx'
         ##with open(filename, "rb") as f:
         ##    file = MIMEApplication(f.read())
@@ -62,7 +63,7 @@ for r in df.itertuples():
         ##file.add_header("Content-Disposition", disposition)
         ##message.attach(file)
 
-        # Connect with server and send the message
+# Connect with server and send the message
         with smtplib.SMTP_SSL("smtp.gmail.com", port=465, context=ctx) as server:
                 server.login(sender, password)
                 server.sendmail(sender, receiver, message.as_string())

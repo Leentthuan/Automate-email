@@ -8,7 +8,7 @@ from email.message import EmailMessage
 
 # Attach message body content
 # Create the body of the message (a plain-text and an HTML version).
-df = pd.read_excel('/Users/user1/Desktop/Sheet2.xlsx')
+df = pd.read_excel('/Users/user1/Desktop/Sheet1.xlsx')
 df['Duration'] = df['Duration'].dt.strftime('%B %d, %Y')
 
 for r in df.itertuples():      
@@ -55,7 +55,7 @@ for r in df.itertuples():
         message.attach(part1)
 
 # Attach image
-        ##filename = '/Users/user1/Desktop/Sheet2.xlsx'
+        ##filename = '/Users/user1/Desktop/Sheet1.xlsx'
         ##with open(filename, "rb") as f:
         ##    file = MIMEApplication(f.read())
                 

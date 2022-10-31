@@ -8,7 +8,7 @@ from email.message import EmailMessage
 
 # Attach message body content
 # Create the body of the message (a plain-text and an HTML version).
-df = pd.read_excel('/Users/user1/Desktop/Sheet1.xlsx')
+df = pd.read_excel('/Users/user1/Desktop/Sheet2.xlsx')
 df['Duration'] = df['Duration'].dt.strftime('%B %d, %Y')
 
 for r in df.itertuples():      
@@ -22,27 +22,28 @@ for r in df.itertuples():
         Email_sent = r[8]
 
         msg = f"""
-        Dear {First_name},
-        <br>Here is  your {Discount_code} for {Description}.
-        <br>Remember to use it before {Duration}. 
+        Dear {r[1]},
+        <br>Here is  your code {r[5]} for {r[4]}.
+        <br>Use this to get {r[6]} discount on your next purchase.
+        <br>The code will expire after {r[7]}. 
         <br>Best regard,
-        <br>Lee
+        <br>Lee.
 
         """
         print(msg)
 # Define the transport variables
         ctx = ssl.create_default_context()
-        password = "Your app password"    # Your app password goes here
+        password = "tisrkeyqxcrblxrk"    # Your app password goes here
 # Generate app password:"https://support.google.com/mail/answer/185833?hl=en-GB"
-        sender = "Youremail@gmail.com"   # Your e-mail address
-        receiver = Recipient # Recipient's address
+        sender = "Leentthuan@gmail.com"   # Your e-mail address
+        receiver = r[3] # Recipient's address
         print(receiver)
         
 # Create the message
         message = MIMEMultipart("mixed")
         message["From"] = sender
         message["To"] = receiver
-        message["Subject"] = "Testing things!"
+        message["Subject"] = "!Discount?!OOH WOAH"
 
 # Record the MIME types of both parts - text/plain and text/html.
         #part1 = MIMEText(text, 'plain')
@@ -55,7 +56,7 @@ for r in df.itertuples():
         message.attach(part1)
 
 # Attach image
-        ##filename = '/Users/user1/Desktop/Sheet1.xlsx'
+        ##filename = '/Users/user1/Desktop/Sheet2.xlsx'
         ##with open(filename, "rb") as f:
         ##    file = MIMEApplication(f.read())
                 

@@ -43,7 +43,7 @@ for r in df.itertuples():
         message = MIMEMultipart("mixed")
         message["From"] = sender
         message["To"] = receiver
-        message["Subject"] = "!Discount?!OOH WOAH"
+        message["Subject"] = "!Discount?!"
 
 # Record the MIME types of both parts - text/plain and text/html.
         #part1 = MIMEText(text, 'plain')

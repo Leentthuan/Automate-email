@@ -20,7 +20,8 @@ for r in df.itertuples():
         Discount_amount = r[6]
         Duration = r[7]
         Email_sent = r[8]
-
+        
+# Can change HTML message depending on the sender
         msg = f"""
         Dear {r[1]},
         <br>Here is  your code {r[5]} for {r[4]}.
